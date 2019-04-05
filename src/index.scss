@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  src: url("./fonts/PT_Sans-Web-Regular.ttf");
+  font-family: "PT Sans";
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.app {
+  width: 100%;
+  height: 100vh;
+  background-color: #1082d3;
+  background: linear-gradient(45deg, #0dc47e, #1082d3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  width: 80%;
+  height: 70vh;
+  background-color: #fff;
+  font-family: "PT Sans";
+  display: flex;
+  .parent {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    .title {
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      color: #fff;
+      z-index: 10;
+      h1 {
+        font-size: 3em;
+      }
+      p {
+        font-size: 1.8em;
+      }
+      h1,
+      p {
+        text-shadow: 3px 5px 6px #000;
+      }
+    }
+    .title_container {
+      width: 100%;
+      height: 100%;
+      // background-color: orange;
+      background-image: url("./images/background.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      /* filter: blur(3px); */
+      color: #fff;
+      transition: transform 0.4s ease;
+    }
+    &:hover,
+    &:focus {
+      .title_container {
+        transform: scale(1.2);
+      }
+    }
+  }
+  .form_container {
+    width: 50%;
+    background-color: #3d664b;
+    form {
+      display: flex;
+      margin: 40px 25px;
+      input {
+        font-family: "PT Sans";
+        padding: 5px 0 5px 5px;
+        margin: 0 7px;
+        &::placeholder {
+          color: #fff;
+        }
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #0dc47e;
+        outline: none;
+        color: #fff;
+        &[type="text"] {
+          font-size: 18px;
+        }
+      }
+      .button {
+        padding: 10px 20px;
+        background-color: transparent;
+        font-size: 15px;
+        cursor: pointer;
+        border: 1px solid #0dc47e;
+        transition: background-color 0.4s ease;
+        color: #fff;
+        outline: none;
+        &:hover {
+          background-color: #0dc47e;
+        }
+      }
+    }
+    .weather {
+      margin: 40px 35px;
+      color: #fff;
+      // > div {
+      //   display: none;
+      // }
+      #weather_container {
+        > div {
+          margin: 25px 0;
+          span {
+            font-size: 20px;
+            &:first-child {
+              color: #23ddac;
+            }
+          }
+        }
+      }
+      #error {
+        text-transform: capitalize;
+        color: #fc0c0c;
+        font-size: 20px;
+      }
+      // .visible {
+      //   display: block;
+      // }
+    }
+  }
+}
+.hidden {
+  display: none;
+}
+@media all and (max-width: 1023px) {
+  .wrapper {
+    flex-direction: column;
+    width: 60vw;
+    min-width: 300px;
+    .parent,
+    .form_container {
+      width: 100%;
+    }
+    .parent {
+      .title {
+        text-align: center;
+      }
+    }
+  }
+}
+@media all and (max-width: 720px) {
+  .wrapper {
+    .form_container {
+      form {
+        margin: 40px 0;
+        justify-content: center;
+      }
+    }
+    .parent {
+      .title {
+        h1 {
+          font-size: 2.4em;
+        }
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
